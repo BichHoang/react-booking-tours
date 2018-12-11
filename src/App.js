@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
 import Menu from './components/Menu/Menu';
+import Header from "./components/Header/Header";
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="App">
-                    <Menu />
-                    {this.showContentMenus(routes)}
+                    {/*<Menu />*/}
+                    {/*{this.showContentMenus(routes)}*/}
+                    <Header></Header>
                 </div>
             </Router>
         );

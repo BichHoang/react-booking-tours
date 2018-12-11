@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class HomePage extends Component {
+class Header extends Component {
     render() {
         return (
             <div>
@@ -46,7 +46,7 @@ class HomePage extends Component {
                             <div className="t-banner scroll-to-block">
                                 <div className="swiper-container" data-slides-per-view={1} data-loop={1} data-mode="horizontal">
                                     <div className="swiper-wrapper ">
-                                        <div className="swiper-slide background-parent">
+                                        <div className="swiper-slide background-parent img-full">
                                             <img className="center-image" src={process.env.PUBLIC_URL + 'images/banahill.jpg'} alt="img" />
                                             <div className="container">
                                                 <div className="t-banner-content">
@@ -86,8 +86,7 @@ class HomePage extends Component {
                 </div>
             </div>
 
-    );
+        );
     }
 }
-
-export default HomePage;
+export default Header;
