@@ -4,6 +4,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes';
 import Menu from './components/Menu/Menu';
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Introduce from "./components/Introduce/Introduce";
+import HotTours from "./components/HotTours/HotTours";
+import Ourgallery from "./components/Ourgallery/Ourgallery";
+import HotelReviews from "./components/HotelReviews/HotelReviews";
+import Contact from "./components/Contact/Contact";
+import Blog from "./components/Blog/Blog";
+import Feedback from "./components/Feedback/Feedback";
 
 class App extends Component {
     render() {
@@ -13,6 +21,13 @@ class App extends Component {
                     {/*<Menu />*/}
                     {/*{this.showContentMenus(routes)}*/}
                     <Header></Header>
+                    <Introduce/>
+                    <HotTours/>
+                    <Ourgallery/>
+                    <Feedback/>
+                    <Blog/>
+                    <Contact/>
+                    <Footer/>
                 </div>
             </Router>
         );
