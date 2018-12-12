@@ -12,6 +12,7 @@ import HotelReviews from "./components/HotelReviews/HotelReviews";
 import Contact from "./components/Contact/Contact";
 import Blog from "./components/Blog/Blog";
 import Feedback from "./components/Feedback/Feedback";
+import TourDetail from "./components/TourDetail/TourDetail";
 
 class App extends Component {
     render() {
@@ -23,6 +24,7 @@ class App extends Component {
                     <Header></Header>
                     <Introduce/>
                     <HotTours/>
+                    <TourDetail/>
                     <Ourgallery/>
                     <Feedback/>
                     <Blog/>

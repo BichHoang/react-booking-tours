@@ -109,3 +109,7 @@
 .marginT-50 {
     margin-top: 50px;
 }
+.floatRight{
+    float: right;
+    padding-bottom: 5px;
+}

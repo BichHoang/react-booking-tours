@@ -41,7 +41,7 @@ class Contact extends Component {
                                 <div id="block-webform-client-block-32" className="block block-webform">
                                     <div className="content contactbg">
                                         <div className="contact">
-                                            <form action>
+                                            <form>
                                                 <input type="text" id="fname" name="name"
                                                        placeholder="Your name.."/>
                                                 <input type="email" id="" name=""
