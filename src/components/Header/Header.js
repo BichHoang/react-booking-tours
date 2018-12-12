@@ -10,11 +10,11 @@ class Header extends Component {
                         <div className="cube2 t-cube" />
                     </div>
                 </div>
-                <div>
+                <div id="home">
                     <header className="fixed-top"  style={{background: 'black'}}>
                         <div className="container clearfix nopadding">
                             <div id="logo"  style={{paddingTop: '15px'}}>
-                                <a href="index.html">
+                                <a href="#">
                                     <img src={process.env.PUBLIC_URL + 'images/logo.png'} alt="DNTtravel"/>
                                 </a>
                             </div>
@@ -22,15 +22,15 @@ class Header extends Component {
                                 <div className="region region-main-menu">
                                     <div className="content">
                                         <ul className="ccn-main-menu">
-                                            <li className="first leaf"><a href="/home/index.html#home" className="active">Home</a></li>
-                                            <li className="leaf"><a href="/home/index.html#about" className="active">About us</a></li>
-                                            <li className="leaf"><a href="/home/index.html#hot-tours" className="active">Hot tours</a></li>
-                                            <li className="leaf"><a href="/home/index.html#services" className="active">Services</a></li>
-                                            <li className="leaf"><a href="/home/index.html#gallery" className="active">Gallery</a></li>
-                                            <li className="leaf"><a href="/home/index.html#hotel-reviews" className="active">Reviews</a></li>
-                                            <li className="leaf"><a href="/home/index.html#blog" className="active">Blog</a></li>
-                                            <li className="leaf"><a href="/home/index.html#testimonials" className="active">Testimonials</a></li>
-                                            <li className="last leaf"><a href="/home/index.html#contact" className="active">Contact</a></li>
+                                            <li className="first leaf"><a href="#home" className="active">Home</a></li>
+                                            <li className="leaf"><a href="#about" className="active">About us</a></li>
+                                            <li className="leaf"><a href="#hot-tours" className="active">Hot tours</a></li>
+                                            <li className="leaf"><a href="#services" className="active">Services</a></li>
+                                            <li className="leaf"><a href="#gallery" className="active">Gallery</a></li>
+                                            <li className="leaf"><a href="#hotel-reviews" className="active">Reviews</a></li>
+                                            <li className="leaf"><a href="#blog" className="active">Blog</a></li>
+                                            <li className="leaf"><a href="#testimonials" className="active">Testimonials</a></li>
+                                            <li className="last leaf"><a href="#contact" className="active">Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>

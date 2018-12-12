@@ -4,7 +4,7 @@ import styles from './HotTours.css';
 class HotTours extends Component {
     render() {
         return (
-           <section>
+           <section id="hot-tours">
                <div className="marginT-50">
                    <div className="t-title-block">
                        <img src={process.env.PUBLIC_URL + 'images/hottours.png'} alt="img" />

@@ -1,0 +1,11 @@
+.btnBooking a{
+    text-align: center;
+    display: block;
+    background-color: silver;
+    padding: 15px;
+    font-weight: bold;
+}
+.btnBooking a:hover{
+    background-color: #4CAF50;
+    color: white;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './TourDetail.css';
 
 class TourDetail extends Component {
     render() {
@@ -16,7 +17,7 @@ class TourDetail extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="blog blog-section">
+                <div className="">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
@@ -26,20 +27,15 @@ class TourDetail extends Component {
                                             <div id="block-system-main" className="block block-system">
                                                 <div className="content">
                                                     <article id="node-11" className="" role="article">
-                                                        {/*<div className="content-media">*/}
-                                                            {/*<div className="">*/}
-                                                                {/*<div className="field-items">*/}
-                                                                    {/*<div className="field-item even" rel="og:image rdfs:seeAlso" resource="http://demo.createdbycocoon.com/drupal/nine/nrgtravel/1/sites/default/files/styles/large_blog__900x400_/public/popup5.jpg?itok=xzrh_4Wq">*/}
-                                                                        {/*<a href="" className="active">*/}
-                                                                            {/*<img src={process.env.PUBLIC_URL + 'images/tour1.jpg'} alt="img" />*/}
-                                                                        {/*</a>*/}
-                                                                    {/*</div>*/}
-                                                                {/*</div>*/}
-                                                            {/*</div>*/}
-                                                        {/*</div>*/}
-                                                        <div className="row">
-                                                            <div className="col-md-12">
-                                                                <img src={process.env.PUBLIC_URL + 'images/tour1.jpg'} alt="img" />
+                                                        <div className="content-media">
+                                                            <div className="">
+                                                                <div className="field-items">
+                                                                    <div className="field-item even" rel="og:image rdfs:seeAlso" resource="http://demo.createdbycocoon.com/drupal/nine/nrgtravel/1/sites/default/files/styles/large_blog__900x400_/public/popup5.jpg?itok=xzrh_4Wq">
+                                                                        <a href="" className="active">
+                                                                            <img src="images/tour1.jpg" alt="img" style={{width: '-webkit-fill-available', height: '450px'}} />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div className="content-text">
@@ -55,10 +51,13 @@ class TourDetail extends Component {
                                                             </div>
                                                         </div>
                                                         <div className="content clearfix"></div>
-                                                        <div className="link-wrapper">
-                                                            <ul className="links inline">
-                                                                <li className="comment_forbidden first last" />
-                                                            </ul>
+                                                        {/*<div className="link-wrapper">*/}
+                                                            {/*<ul className="links inline">*/}
+                                                                {/*<li className="comment_forbidden first last" />*/}
+                                                            {/*</ul>*/}
+                                                        {/*</div>*/}
+                                                        <div className="btnBooking">
+                                                            <a>Booking</a>
                                                         </div>
                                                         <div className="content-comment">
                                                             <section id="comments-section" className="comments comment-wrapper comment-wrapper-nid-11">
