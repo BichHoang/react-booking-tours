@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Header.css';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -27,12 +28,10 @@ class Header extends Component {
                             <div className="region region-main-menu">
                                 <div className="content">
                                     <ul className="ccn-main-menu">
-                                        <li className="first leaf"><a href="/home/index.html#home" className="nav-link active">Home</a></li>
+                                        <li className="first leaf"><NavLink to="/" className="nav-link active">Home</NavLink></li>
                                         <li className="leaf"><a href="/home/index.html#about" className="nav-link active">About us</a></li>
                                         <li className="leaf"><a href="/home/index.html#hot-tours" className="nav-link active">Hot tours</a></li>
-                                        <li className="leaf"><a href="/home/index.html#services" className="nav-link active">Services</a></li>
                                         <li className="leaf"><a href="/home/index.html#gallery" className="nav-link active">Gallery</a></li>
-                                        <li className="leaf"><a href="/home/index.html#hotel-reviews" className="nav-link active">Reviews</a></li>
                                         <li className="leaf"><a href="/home/index.html#blog" className="nav-link active">Blog</a></li>
                                         <li className="leaf"><a href="/home/index.html#testimonials" className="nav-link active">Testimonials</a></li>
                                         <li className="last leaf"><a href="/home/index.html#contact" className="nav-link active">Contact</a></li>
