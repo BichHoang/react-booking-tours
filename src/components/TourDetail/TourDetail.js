@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import styles from './TourDetail.css';
+import { connect } from 'react-redux';
+import BookingForm from "../BookingForm/BookingForm";
+import * as actions from './../../actions/index';
 
 class TourDetail extends Component {
+    constructor(props){
+        super();
+        this.state = {
+        }
+    }
+    openForm = () => {
+        console.log("OPEN");
+        this.props.openForm();
+    }
     render() {
+        var { isDisplayBookingForm } = this.props;
+        let booking = null;
+        if(isDisplayBookingForm) booking = <BookingForm />
         return (
             <div>
                 <div className="page-title">
@@ -51,64 +66,11 @@ class TourDetail extends Component {
                                                             </div>
                                                         </div>
                                                         <div className="content clearfix"></div>
-                                                        <div className="btnBooking">
-                                                            <a onclick="btnBooking();">Booking</a>
+                                                        <div className={isDisplayBookingForm === true ? 'hidenButton' : 'btnBooking'}>
+                                                            <a onClick={this.openForm}>Booking</a>
                                                         </div>
-                                                        <div id="booking" className="section">
-                                                            <div className="section-center">
-                                                                <div className="container">
-                                                                    <div className="row">
-                                                                        <div className="booking-form">
-                                                                            <div className="form-header">
-                                                                                <h1>Book Tour</h1>
-                                                                            </div>
-                                                                            <form>
-                                                                                <div className="row">
-                                                                                    <div className="col-sm-6">
-                                                                                        <div className="form-group">
-                                                                                            <span className="form-label">Name</span>
-                                                                                            <input className="form-control" type="text" placeholder="Enter your name" />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div className="col-sm-6">
-                                                                                        <div className="form-group">
-                                                                                            <span className="form-label">Email</span>
-                                                                                            <input className="form-control" type="email" placeholder="Enter your email" />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="form-group">
-                                                                                    <span className="form-label">Phone</span>
-                                                                                    <input className="form-control" type="tel" placeholder="Enter your phone number" />
-                                                                                </div>
-                                                                                <div className="form-group">
-                                                                                    <span className="form-label">Pickup Location</span>
-                                                                                    <input className="form-control" type="text" placeholder="Enter ZIP/Location" />
-                                                                                </div>
-                                                                                <div className="row">
-                                                                                    <div className="col-sm-5">
-                                                                                        <div className="form-group">
-                                                                                            <span className="form-label">Begin Date</span>
-                                                                                            <input className="form-control" type="date" required />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="row">
-                                                                                    <div className="col-sm-5">
-                                                                                        <div className="form-group">
-                                                                                            <span className="form-label">End Date</span>
-                                                                                            <input className="form-control" type="date" required />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="form-btn">
-                                                                                    <button className="submit-btn">Book Now</button>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div>
+                                                            {booking}
                                                         </div>
                                                         <div className="content-comment">
                                                             <section id="comments-section" className="comments comment-wrapper comment-wrapper-nid-11">
@@ -135,6 +97,18 @@ class TourDetail extends Component {
         );
     }
 }
-export default TourDetail;
+const mapStatetoProps = state => {
+    return{
+        isDisplayBookingForm : state.isDisplayBookingForm
+    };
+}
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        openForm : () => {
+            dispatch(actions.openForm());
+        }
+    };
+};
+export default connect(mapStatetoProps, mapDispatchToProps) (TourDetail);
 
 

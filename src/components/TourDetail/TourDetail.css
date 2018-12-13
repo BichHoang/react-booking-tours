@@ -146,3 +146,6 @@
     border-radius: 3px;
     text-transform: uppercase;
 }
+.hidenButton {
+    display: none;
+}
