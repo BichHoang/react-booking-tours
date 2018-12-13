@@ -1,80 +1,80 @@
 import * as Types from './../constants/ActionType';
 import callApi from './../utils/apiCaller';
 
-export const actFetchProductsRequest = () => {
+export const actFetchtoursRequest = () => {
     return (dispatch) => {
-        return callApi('/products', 'GET', null).then(res => {
-            dispatch(actFetchProducts(res.data));
+        return callApi('/tours', 'GET', null).then(res => {
+            dispatch(actFetchtours(res.data));
         });
     }
 }
 
-export const actFetchProducts = (products) => {
+export const actFetchtours = (tours) => {
     return {
-        type: Types.FETCH_PRODUCTS,
-        products
+        type: Types.FETCH_TOURS,
+        tours
     }
 }
 
-export const actAddProductRequest = (product) => {
+export const actAddtourRequest = (tour) => {
     return (dispatch) => {
-        return callApi('/products', 'POST', product).then(res => {
-            dispatch(actAddProduct(res.data));
+        return callApi('/tours', 'POST', tour).then(res => {
+            dispatch(actAddtour(res.data));
         });
     }
 }
 
-export const actAddProduct = (product) => {
+export const actAddtour = (tour) => {
     return {
-        type: Types.ADD_PRODUCT,
-        product
+        type: Types.ADD_TOUR,
+        tour
     }
 }
 
-export const actUpdateProductRequest = (product) => {
+export const actUpdatetourRequest = (tour) => {
     return (dispatch) => {
-        return callApi(`/products/${product.id}`, 'PUT', product).then(res => {
+        return callApi(`/tours/${tour.id}`, 'PUT', tour).then(res => {
             if (res) {
-                dispatch(actUpdateProduct(res.data));
+                dispatch(actUpdatetour(res.data));
             }
         });
     }
 }
 
-export const actUpdateProduct = (product) => {
+export const actUpdatetour = (tour) => {
     return {
-        type: Types.UPDATE_PRODUCT,
-        product
+        type: Types.UPDATE_TOUR,
+        tour
     }
 }
 
-export const actDeleteProductRequest = (id) => {
+export const actDeletetourRequest = (id) => {
     return (dispatch) => {
-        return callApi(`/products/${id}`, 'DELETE', null).then(res => {
-            dispatch(actDeleteProduct(id));
+        return callApi(`/tours/${id}`, 'DELETE', null).then(res => {
+            dispatch(actDeletetour(id));
         });
     }
 }
 
-export const actDeleteProduct = (id) => {
+export const actDeletetour = (id) => {
     return {
-        type: Types.DELETE_PRODUCT,
+        type: Types.DELETE_TOUR,
         id
     }
 }
 
-export const actGetProductRequest = (id) => {
+export const actGettourRequest = (id) => {
     return dispatch => {
-        return callApi(`/products/${id}`, 'GET', null).then(res => {
-            dispatch(actGetProduct(res.data))
+        return callApi(`/tours/${id}`, 'GET', null).then(res => {
+            dispatch(actGettour(res.data))
         });
     }
 }
 
-export const actGetProduct = (product) => {
+export const actGettour = (tour) => {
     return {
-        type : Types.EDIT_PRODUCT,
-        product
+        type : Types.EDIT_TOUR,
+        tour
     }
 }
 export const openForm = () => {

@@ -1,36 +1,23 @@
 import React, { Component } from 'react';
 import './Ourgallery.css';
 import { Link } from 'react-router-dom';
+import callApi from './../../utils/apiCaller';
 
 class Ourgallery extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tours: []
+        }
+    }
+    componentDidMount() {
+        callApi('tours','GET',null).then(res => {
+            this.setState({tours: res.data})
+        })
+    }
     render() {
-        let tours = [
-            {   
-                id: 1,
-                src_img: process.env.PUBLIC_URL + 'images/hot1.jpg',
-                price: 775,
-                place: 'Istanbul, Turkey'
-            },
-            {
-                id: 2,
-                src_img: process.env.PUBLIC_URL + 'images/hot2.jpg',
-                price: 775,
-                place: 'Istanbul, Turkey'
-            },
-            {
-                id: 3,
-                src_img: process.env.PUBLIC_URL + 'images/hot1.jpg',
-                price: 775,
-                place: 'Istanbul, Turkey'
-            },
-            {
-                id: 4,
-                src_img: process.env.PUBLIC_URL + 'images/hot2.jpg',
-                price: 775,
-                place: 'Istanbul, Turkey'
-            }
-        ]
         let {match} = this.props;
+        let {tours} = this.state;
         console.log(match);
         let url = match.url;
         if(url === '/') {
