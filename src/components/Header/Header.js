@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './Header.css';
+import './Header.css';
 import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
@@ -15,7 +15,7 @@ class Header extends Component {
                 <header className="bg-black">
                     <div className="container clearfix nopadding">
                         <div id="logo">
-                            <a href="">
+                            <a href="/">
                                 <img src="images/logo.png" alt="img" />
                             </a>
                         </div>
@@ -29,14 +29,11 @@ class Header extends Component {
                                 <div className="content">
                                     <ul className="ccn-main-menu">
                                         <li className="first leaf"><NavLink to="/" className="nav-link active">Home</NavLink></li>
-                                        <li className="leaf"><a href="/home/index.html#about" className="nav-link active">About us</a></li>
-                                        <li className="leaf"><a href="/home/index.html#hot-tours" className="nav-link active">Hot tours</a></li>
-                                        <li className="leaf"><a href="/home/index.html#services" className="nav-link active">Services</a></li>
-                                        <li className="leaf"><a href="/home/index.html#gallery" className="nav-link active">Gallery</a></li>
-                                        <li className="leaf"><a href="/home/index.html#hotel-reviews" className="nav-link active">Reviews</a></li>
-                                        <li className="leaf"><a href="/home/index.html#blog" className="nav-link active">Blog</a></li>
-                                        <li className="leaf"><a href="/home/index.html#testimonials" className="nav-link active">Testimonials</a></li>
-                                        <li className="last leaf"><a href="/home/index.html#contact" className="nav-link active">Contact</a></li>
+                                        <li className="leaf"><a href="/#about" className="nav-link active">About us</a></li>
+                                        <li className="leaf"><a href="/#hot-tours" className="nav-link active">Hot tours</a></li>
+                                        <li className="leaf"><a href="/#gallery" className="nav-link active">Gallery</a></li>
+                                        <li className="leaf"><a href="/#contact" className="nav-link active">Contact</a></li>
+                                        <li className="last leaf"><a href="/login" className="nav-link active">Login</a></li>
                                     </ul>
                                 </div>
                             </div>

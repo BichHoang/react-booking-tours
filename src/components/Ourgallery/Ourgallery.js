@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import styles from './Ourgallery.css';
+import './Ourgallery.css';
 import { Link } from 'react-router-dom';
 
 class Ourgallery extends Component {
     render() {
         return (
-            <section  id="gallery">
+            <section id="gallery">
                 <div className="region region-onepage-our-gallery">
                     <div id="block-views-0da21991801cce90f89c208d8fb76f5f" className="block block-views">
                         <div className="content">
