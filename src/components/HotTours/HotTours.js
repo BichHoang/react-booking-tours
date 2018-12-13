@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './HotTours.css';
-import Link from "react-router-dom/es/Link";
+import { Link }  from 'react-router-dom';
 
 class HotTours extends Component {
     render() {
@@ -51,7 +51,7 @@ class HotTours extends Component {
                                                                <p className="btn-add">
                                                                    <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
                                                                <p className="btn-details">
-                                                                   <i className="fa fa-list" /><Link to="/tour">More</Link></p>
+                                                                   <i className="fa fa-list" /><Link to="/details">More</Link></p>
                                                            </div>
                                                            <div className="clearfix">
                                                            </div>
@@ -78,9 +78,9 @@ class HotTours extends Component {
                                                            </div>
                                                            <div className="separator clear-left">
                                                                <p className="btn-add">
-                                                                   <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
+                                                                    <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
                                                                <p className="btn-details">
-                                                                   <i className="fa fa-list" /><Link to="/tour">More</Link></p>
+                                                                    <i className="fa fa-list" /><Link to="/details">More</Link></p>
                                                            </div>
                                                            <div className="clearfix">
                                                            </div>
@@ -107,9 +107,9 @@ class HotTours extends Component {
                                                            </div>
                                                            <div className="separator clear-left">
                                                                <p className="btn-add">
-                                                                   <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
+                                                                    <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
                                                                <p className="btn-details">
-                                                                   <i className="fa fa-list" /><Link to="/tour">More</Link></p>
+                                                                    <i className="fa fa-list" /><Link to="/details">More</Link></p>
                                                            </div>
                                                            <div className="clearfix">
                                                            </div>

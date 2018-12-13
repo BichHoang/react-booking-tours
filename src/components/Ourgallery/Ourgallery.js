@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Ourgallery.css';
+import { Link } from 'react-router-dom';
 
 class Ourgallery extends Component {
     render() {
@@ -26,62 +27,28 @@ class Ourgallery extends Component {
                                 <center>
                                     <div id="gallery-popap" className="isotope img-crop ">
                                         <div className="grid" />
-                                        <a className="country-link 8 work-img" href="#gallery-box">
+                                        <Link to="/details" className="country-link 8 work-img" href="#gallery-box">
                                             <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
                                             <div className="info-panel">
                                                 <div className="hot-price">$775.00</div>
                                                 <h3 className="country-name">Istanbul, Turkey</h3>
                                             </div>
-                                        </a>
-                                        <a className="country-link 9 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </a>
-                                        <a className="country-link 10 work-img" href="#gallery-box">
+                                        </Link>
+                                        <Link to="/details" className="country-link 8 work-img" href="#gallery-box">
                                             <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot3.jpg'} alt="img" />
                                             <div className="info-panel">
                                                 <div className="hot-price">$775.00</div>
                                                 <h3 className="country-name">Istanbul, Turkey</h3>
                                             </div>
-                                        </a>
-                                        <a className="country-link 11 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot4.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </a>
-                                        <a className="country-link 12 work-img" href="#gallery-box">
+                                        </Link>
+                                        <Link to="/details" className="country-link 8 work-img" href="#gallery-box">
                                             <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
                                             <div className="info-panel">
                                                 <div className="hot-price">$775.00</div>
                                                 <h3 className="country-name">Istanbul, Turkey</h3>
                                             </div>
-                                        </a>
-                                        <a className="country-link 13 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </a>
-                                        <a className="country-link 13 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot4.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </a>
-                                        <a className="country-link 8 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot3.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </a>
+                                        </Link>
+                                        
                                     </div>
                                     <div id="gallery-box" className="mfp-with-anim mfp-hide">
                                         <div className="sw-container">
