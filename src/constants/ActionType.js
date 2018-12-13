@@ -1,8 +1,8 @@
-export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
-export const ADD_PRODUCT = 'ADD_PRODUCT';
-export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
-export const DELETE_PRODUCT = 'DELETE_PRODUCT';
-export const EDIT_PRODUCT = 'EDIT_PRODUCT';
+export const FETCH_TOURS = 'FETCH_TOURS'; 
+export const ADD_TOUR = 'ADD_TOUR'; 
+export const UPDATE_TOUR = 'UPDATE_TOUR';
+export const DELETE_TOUR = 'DELETE_TOUR';
+export const EDIT_TOUR = 'EDIT_TOUR';
 
 export const OPEN_BOOKING_FORM = 'OPEN_BOOKING_FORM';
 export const CLOSE_BOOKING_FORM = 'CLOSE_BOOKING_FORM';
