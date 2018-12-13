@@ -4,6 +4,7 @@ import NotFound from './pages/NotFound/NotFound';
 import ProductListPage from './pages/ProductListPage/ProductListPage';
 import ProductActionPage from './pages/ProductActionPage/ProductActionPage';
 import TourDetail from "./components/TourDetail/TourDetail";
+import Tours from './components/Tours/Tours';
 
 const routes = [
     {
@@ -25,6 +26,11 @@ const routes = [
         path: '/product/:id/edit',
         exact: false,
         main: ({ match, history }) => <ProductActionPage match={match} history={history} />
+    },
+    {
+        path: '/tours',
+        exact: false,
+        main: ({ match}) => <Tours match={match} />
     },
     {
         path: '',
