@@ -77,3 +77,13 @@ export const actGetProduct = (product) => {
         product
     }
 }
+export const openForm = () => {
+    return {
+        type : Types.OPEN_BOOKING_FORM
+    }
+}
+export const closeForm = () => {
+    return {
+        type : Types.CLOSE_BOOKING_FORM
+    }
+}
