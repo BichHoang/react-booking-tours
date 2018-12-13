@@ -13,8 +13,7 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <Header/>
-                    <Route exact path="/" component={Content}/>
-                    <Route path="/details" component={TourDetail}/>
+                    {this.showContentMenus(routes)}
                     <Footer/>
                 </div>
             </Router>
