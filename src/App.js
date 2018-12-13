@@ -13,7 +13,7 @@ import Contact from "./components/Contact/Contact";
 import Blog from "./components/Blog/Blog";
 import Feedback from "./components/Feedback/Feedback";
 import TourDetail from "./components/TourDetail/TourDetail";
-import Slide from "./Slide/Slide";
+import Slide from "./components/Slide/Slide";
 
 class App extends Component {
     render() {
