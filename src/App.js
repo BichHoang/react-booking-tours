@@ -2,35 +2,19 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
-import Menu from './components/Menu/Menu';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Introduce from "./components/Introduce/Introduce";
-import HotTours from "./components/HotTours/HotTours";
-import Ourgallery from "./components/Ourgallery/Ourgallery";
-import HotelReviews from "./components/HotelReviews/HotelReviews";
-import Contact from "./components/Contact/Contact";
-import Blog from "./components/Blog/Blog";
-import Feedback from "./components/Feedback/Feedback";
-import TourDetail from "./components/TourDetail/TourDetail";
-import Slide from "./components/Slide/Slide";
+import Content from './components/Content/Content';
+import TourDetail from './components/TourDetail/TourDetail';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <div className="App">
-                    {/*<Menu />*/}
-                    {/*{this.showContentMenus(routes)}*/}
-                    <Header></Header>
-                    <Slide/>
-                    <Introduce/>
-                    <HotTours/>
-                    <TourDetail/>
-                    <Ourgallery/>
-                    <Feedback/>
-                    <Blog/>
-                    <Contact/>
+                    <Header/>
+                    <Route exact path="/" component={Content}/>
+                    <Route path="/details" component={TourDetail}/>
                     <Footer/>
                 </div>
             </Router>
