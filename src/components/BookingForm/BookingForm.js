@@ -23,11 +23,7 @@ class BookingForm extends Component {
                 <div className="panel-heading">
                     <h3 className="panel-title">
                         BOOKING TOUR
-                        <span
-                            className="fa fa-times-circle text-right floatRight"
-                            onClick={this.onExitForm}
-
-                        ></span>
+                        <span className="fa fa-times-circle text-right floatRight" onClick={this.onExitForm}></span>
                     </h3>
                 </div>
                 <div className="panel-body">
@@ -50,7 +46,7 @@ class BookingForm extends Component {
                                                 <div className="col-sm-6">
                                                     <div className="form-group">
                                                         <span className="form-label">Email</span>
-                                                        <input className="form-control" type="email" placeholder="Enter your email" />
+                                                        <input className="form-control" type="email" placeholder="Enter your email" style={{width: '-webkit-fill-available'}} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,22 +55,30 @@ class BookingForm extends Component {
                                                 <input className="form-control" type="tel" placeholder="Enter your phone number" />
                                             </div>
                                             <div className="form-group">
-                                                <span className="form-label">Pickup Location</span>
-                                                <input className="form-control" type="text" placeholder="Enter ZIP/Location" />
+                                                <span className="form-label">Ghi chú</span>
+                                                <textarea id="subject" name="subject" placeholder="Write something.."
+                                                          style={{width: '-webkit-fill-available', height: '100px'}} defaultValue={""}/>
                                             </div>
-                                            <div className="row">
-                                                <div className="col-sm-5">
-                                                    <div className="form-group">
-                                                        <span className="form-label">Begin Date</span>
-                                                        <input className="form-control" type="date" required />
+
+                                            <div className="row" >
+                                                <div className="col-md-12 col-lg-12 col-sm-12">
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            <span className="form-label"> Quantity</span>
+                                                            <input type="number" name="quantity" min={1} max={20} style={{width: '-webkit-fill-available', paddingTop: '3px'}}  />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-sm-5">
-                                                    <div className="form-group">
-                                                        <span className="form-label">End Date</span>
-                                                        <input className="form-control" type="date" required />
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            <span className="form-label">Begin Date</span>
+                                                            <input className="form-control" type="date" required  style={{width: '-webkit-fill-available'}} />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-4">
+                                                        <div className="form-group">
+                                                            <span className="form-label">End Date</span>
+                                                            <input className="form-control" type="date" required  style={{width: '-webkit-fill-available'}} />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
