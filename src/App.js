@@ -13,6 +13,7 @@ import Contact from "./components/Contact/Contact";
 import Blog from "./components/Blog/Blog";
 import Feedback from "./components/Feedback/Feedback";
 import TourDetail from "./components/TourDetail/TourDetail";
+import Slide from "./Slide/Slide";
 
 class App extends Component {
     render() {
@@ -22,6 +23,7 @@ class App extends Component {
                     {/*<Menu />*/}
                     {/*{this.showContentMenus(routes)}*/}
                     <Header></Header>
+                    <Slide/>
                     <Introduce/>
                     <HotTours/>
                     <TourDetail/>
