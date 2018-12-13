@@ -4,7 +4,7 @@ import styles from './Ourgallery.css';
 class Ourgallery extends Component {
     render() {
         return (
-            <section>
+            <section  id="gallery">
                 <div className="region region-onepage-our-gallery">
                     <div id="block-views-0da21991801cce90f89c208d8fb76f5f" className="block block-views">
                         <div className="content">
@@ -174,6 +174,7 @@ class Ourgallery extends Component {
                                     </div>
                                 </center>
                             </section>
+                            <div className="content clearfix"></div>
                         </div>
                     </div>
                 </div>

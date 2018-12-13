@@ -84,6 +84,7 @@ a, a:link, a:visited, a:active, a:hover {
   cursor: pointer;
   text-decoration: none;
   outline: none;
+  padding-bottom: 20px;
 }
 
 body {

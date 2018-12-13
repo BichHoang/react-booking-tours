@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './TourDetail.css';
 
 class TourDetail extends Component {
     render() {
@@ -16,7 +17,7 @@ class TourDetail extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="blog blog-section">
+                <div className="">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
@@ -26,20 +27,15 @@ class TourDetail extends Component {
                                             <div id="block-system-main" className="block block-system">
                                                 <div className="content">
                                                     <article id="node-11" className="" role="article">
-                                                        {/*<div className="content-media">*/}
-                                                            {/*<div className="">*/}
-                                                                {/*<div className="field-items">*/}
-                                                                    {/*<div className="field-item even" rel="og:image rdfs:seeAlso" resource="http://demo.createdbycocoon.com/drupal/nine/nrgtravel/1/sites/default/files/styles/large_blog__900x400_/public/popup5.jpg?itok=xzrh_4Wq">*/}
-                                                                        {/*<a href="" className="active">*/}
-                                                                            {/*<img src={process.env.PUBLIC_URL + 'images/tour1.jpg'} alt="img" />*/}
-                                                                        {/*</a>*/}
-                                                                    {/*</div>*/}
-                                                                {/*</div>*/}
-                                                            {/*</div>*/}
-                                                        {/*</div>*/}
-                                                        <div className="row">
-                                                            <div className="col-md-12">
-                                                                <img src={process.env.PUBLIC_URL + 'images/tour1.jpg'} alt="img" />
+                                                        <div className="content-media">
+                                                            <div className="">
+                                                                <div className="field-items">
+                                                                    <div className="field-item even" rel="og:image rdfs:seeAlso" resource="http://demo.createdbycocoon.com/drupal/nine/nrgtravel/1/sites/default/files/styles/large_blog__900x400_/public/popup5.jpg?itok=xzrh_4Wq">
+                                                                        <a href="" className="active">
+                                                                            <img src="images/tour1.jpg" alt="img" style={{width: '-webkit-fill-available', height: '450px'}} />
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div className="content-text">
@@ -55,10 +51,64 @@ class TourDetail extends Component {
                                                             </div>
                                                         </div>
                                                         <div className="content clearfix"></div>
-                                                        <div className="link-wrapper">
-                                                            <ul className="links inline">
-                                                                <li className="comment_forbidden first last" />
-                                                            </ul>
+                                                        <div className="btnBooking">
+                                                            <a onclick="btnBooking();">Booking</a>
+                                                        </div>
+                                                        <div id="booking" className="section">
+                                                            <div className="section-center">
+                                                                <div className="container">
+                                                                    <div className="row">
+                                                                        <div className="booking-form">
+                                                                            <div className="form-header">
+                                                                                <h1>Book Tour</h1>
+                                                                            </div>
+                                                                            <form>
+                                                                                <div className="row">
+                                                                                    <div className="col-sm-6">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">Name</span>
+                                                                                            <input className="form-control" type="text" placeholder="Enter your name" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div className="col-sm-6">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">Email</span>
+                                                                                            <input className="form-control" type="email" placeholder="Enter your email" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="form-group">
+                                                                                    <span className="form-label">Phone</span>
+                                                                                    <input className="form-control" type="tel" placeholder="Enter your phone number" />
+                                                                                </div>
+                                                                                <div className="form-group">
+                                                                                    <span className="form-label">Pickup Location</span>
+                                                                                    <input className="form-control" type="text" placeholder="Enter ZIP/Location" />
+                                                                                </div>
+                                                                                <div className="row">
+                                                                                    <div className="col-sm-5">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">Begin Date</span>
+                                                                                            <input className="form-control" type="date" required />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="row">
+                                                                                    <div className="col-sm-5">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">End Date</span>
+                                                                                            <input className="form-control" type="date" required />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="form-btn">
+                                                                                    <button className="submit-btn">Book Now</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div className="content-comment">
                                                             <section id="comments-section" className="comments comment-wrapper comment-wrapper-nid-11">
@@ -85,7 +135,6 @@ class TourDetail extends Component {
         );
     }
 }
-
 export default TourDetail;
 
 

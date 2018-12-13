@@ -5,7 +5,6 @@ class Feedback extends Component {
     render() {
         return (
             <div className="content">
-                <p className="bg-clor">a</p>
                 <section className="t-review-section scroll-to-block">
                     <div className="t-title-block">
                         <img src={process.env.PUBLIC_URL + 'images/feedback.png'} alt="img" />
