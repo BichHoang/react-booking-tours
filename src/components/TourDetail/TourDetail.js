@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './TourDetail.css';
+import './TourDetail.css';
 import { connect } from 'react-redux';
 import BookingForm from "../BookingForm/BookingForm";
 import * as actions from './../../actions/index';

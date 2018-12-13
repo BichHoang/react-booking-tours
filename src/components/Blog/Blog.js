@@ -14,17 +14,17 @@ class Blog extends Component {
                                 </p>
                                 <div className="row">
                                     <div className="col-md-4 col-sm-4 post">
-                                        <a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl.html"><img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/blog1.jpg'} width={370} height={277} alt="image" /></a>
+                                        <a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl.html"><img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/blog1.jpg'} width={370} height={277} alt="img" /></a>
                                         <h5><a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl.html">Pellentesque et lacinia eros, condim entum hendrerit nisl.</a></h5>
                                         <p>admin | 09 March 2015</p>
                                         <a className="read-more red-blog" href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl.html">Read more</a> </div>
                                     <div className="col-md-4 col-sm-4 post">
-                                        <a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-0.html"><img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/blog2.jpg'} width={370} height={277} alt="image" /></a>
+                                        <a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-0.html"><img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/blog2.jpg'} width={370} height={277} alt="img" /></a>
                                         <h5><a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-0.html">Pellentesque et lacinia eros, condim entum hendrerit nisl.</a></h5>
                                         <p>admin | 09 March 2015</p>
                                         <a className="read-more red-blog" href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-0.html">Read more</a> </div>
                                     <div className="col-md-4 col-sm-4 post">
-                                        <a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-1.html"><img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/blog3.jpg'} width={370} height={277} alt="image" /></a>
+                                        <a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-1.html"><img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/blog3.jpg'} width={370} height={277} alt="img" /></a>
                                         <h5><a href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-1.html">Pellentesque et lacinia eros, condim entum hendrerit nisl.</a></h5>
                                         <p>admin | 09 March 2015</p>
                                         <a className="read-more red-blog" href="post/pellentesque-et-lacinia-eros-condim-entum-hendrerit-nisl-1.html">Read more</a> </div>

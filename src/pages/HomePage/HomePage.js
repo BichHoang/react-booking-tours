@@ -13,7 +13,7 @@ class HomePage extends Component {
                 <header className="r-header header">
                     <div className="container clearfix nopadding">
                         <div id="logo">
-                            <a href="">
+                            <a href="/">
                             </a>
                         </div>
                         <div className="menu-button r-menu-button">
