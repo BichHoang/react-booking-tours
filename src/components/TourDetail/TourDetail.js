@@ -51,13 +51,64 @@ class TourDetail extends Component {
                                                             </div>
                                                         </div>
                                                         <div className="content clearfix"></div>
-                                                        {/*<div className="link-wrapper">*/}
-                                                            {/*<ul className="links inline">*/}
-                                                                {/*<li className="comment_forbidden first last" />*/}
-                                                            {/*</ul>*/}
-                                                        {/*</div>*/}
                                                         <div className="btnBooking">
-                                                            <a>Booking</a>
+                                                            <a onclick="btnBooking();">Booking</a>
+                                                        </div>
+                                                        <div id="booking" className="section">
+                                                            <div className="section-center">
+                                                                <div className="container">
+                                                                    <div className="row">
+                                                                        <div className="booking-form">
+                                                                            <div className="form-header">
+                                                                                <h1>Book Tour</h1>
+                                                                            </div>
+                                                                            <form>
+                                                                                <div className="row">
+                                                                                    <div className="col-sm-6">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">Name</span>
+                                                                                            <input className="form-control" type="text" placeholder="Enter your name" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div className="col-sm-6">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">Email</span>
+                                                                                            <input className="form-control" type="email" placeholder="Enter your email" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="form-group">
+                                                                                    <span className="form-label">Phone</span>
+                                                                                    <input className="form-control" type="tel" placeholder="Enter your phone number" />
+                                                                                </div>
+                                                                                <div className="form-group">
+                                                                                    <span className="form-label">Pickup Location</span>
+                                                                                    <input className="form-control" type="text" placeholder="Enter ZIP/Location" />
+                                                                                </div>
+                                                                                <div className="row">
+                                                                                    <div className="col-sm-5">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">Begin Date</span>
+                                                                                            <input className="form-control" type="date" required />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="row">
+                                                                                    <div className="col-sm-5">
+                                                                                        <div className="form-group">
+                                                                                            <span className="form-label">End Date</span>
+                                                                                            <input className="form-control" type="date" required />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="form-btn">
+                                                                                    <button className="submit-btn">Book Now</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div className="content-comment">
                                                             <section id="comments-section" className="comments comment-wrapper comment-wrapper-nid-11">
@@ -84,7 +135,6 @@ class TourDetail extends Component {
         );
     }
 }
-
 export default TourDetail;
 
 

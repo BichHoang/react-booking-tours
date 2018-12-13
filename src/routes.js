@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage/HomePage';
 import NotFound from './pages/NotFound/NotFound';
 import ProductListPage from './pages/ProductListPage/ProductListPage';
 import ProductActionPage from './pages/ProductActionPage/ProductActionPage';
+import TourDetail from "./components/TourDetail/TourDetail";
 
 const routes = [
     {
