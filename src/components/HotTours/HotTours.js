@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './HotTours.css';
+import './HotTours.css';
 import { Link }  from 'react-router-dom';
 
 class HotTours extends Component {
