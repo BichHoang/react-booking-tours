@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Introduce extends Component {
     render() {
         return (
-            <div>
+            <div id="about">
                 <section className="t-about scroll-to-block">
                     <div className="container clearfix">
                         <div className="t-about-img-box">
