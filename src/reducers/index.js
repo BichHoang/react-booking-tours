@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import products from './products';
+import tours from './tours';
 import itemEditing from './itemEditing';
 import isDisplayBookingForm from "./isDisplayBookingForm";
 
 const appReducers = combineReducers({
-    products,
+    tours,
     itemEditing,
     isDisplayBookingForm
 });
