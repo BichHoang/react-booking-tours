@@ -4,6 +4,49 @@ import { Link } from 'react-router-dom';
 
 class Ourgallery extends Component {
     render() {
+        let tours = [
+            {   
+                id: 1,
+                src_img: process.env.PUBLIC_URL + 'images/hot1.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            },
+            {
+                id: 2,
+                src_img: process.env.PUBLIC_URL + 'images/hot2.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            },
+            {
+                id: 3,
+                src_img: process.env.PUBLIC_URL + 'images/hot1.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            },
+            {
+                id: 4,
+                src_img: process.env.PUBLIC_URL + 'images/hot2.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            }
+        ]
+        let {match} = this.props;
+        console.log(match);
+        let url = match.url;
+        if(url === '/') {
+            url = '/tours';
+        }
+        let result = tours.map((tour, index) => {
+            return ( 
+                <Link key={index} to={`${url}/${tour.id}`} className="country-link 8 work-img" >
+                    <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
+                    <div className="info-panel">
+                        <div className="hot-price">${tour.price}</div>
+                        <h3 className="country-name">{tour.place}</h3>
+                    </div>
+                </Link>      
+            )
+        })
         return (
             <section  id="gallery">
                 <div className="region region-onepage-our-gallery">
@@ -27,28 +70,7 @@ class Ourgallery extends Component {
                                 <center>
                                     <div id="gallery-popap" className="isotope img-crop ">
                                         <div className="grid" />
-                                        <Link to="/details" className="country-link 8 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </Link>
-                                        <Link to="/details" className="country-link 8 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot3.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </Link>
-                                        <Link to="/details" className="country-link 8 work-img" href="#gallery-box">
-                                            <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                            <div className="info-panel">
-                                                <div className="hot-price">$775.00</div>
-                                                <h3 className="country-name">Istanbul, Turkey</h3>
-                                            </div>
-                                        </Link>
-                                        
+                                       {result}
                                     </div>
                                     <div id="gallery-box" className="mfp-with-anim mfp-hide">
                                         <div className="sw-container">

@@ -4,6 +4,66 @@ import { Link }  from 'react-router-dom';
 
 class HotTours extends Component {
     render() {
+        let tours = [
+            {   
+                id: 1,
+                src_img: process.env.PUBLIC_URL + 'images/hot1.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            },
+            {
+                id: 2,
+                src_img: process.env.PUBLIC_URL + 'images/hot2.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            },
+            {
+                id: 3,
+                src_img: process.env.PUBLIC_URL + 'images/hot1.jpg',
+                price: 775,
+                place: 'Istanbul, Turkey'
+            }
+        ]
+        let {match} = this.props;
+        console.log(match);
+        let url = match.url;
+        if(url === '/') {
+            url = '/tours';
+        }
+        let result = tours.map((tour, index) => {
+            return (   
+                <div key={index} className="col-sm-4">
+                <div className="col-item">
+                    <div className="photo">
+                        <img src={process.env.PUBLIC_URL + 'images/hot1.jpg'} className="img-responsive" alt="a" />
+                    </div>
+                    <div className="info">
+                        <div className="row">
+                            <div className="price col-md-6">
+                                <h5>{tour.place}</h5>
+                                <h5 className="price-text-color">
+                                    ${tour.price}</h5>
+                            </div>
+                            <div className="rating hidden-sm col-md-6">
+                                <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
+                            </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
+                            </i><i className="fa fa-star" />
+                            </div>
+                        </div>
+                        <div className="separator clear-left">
+                            <p className="btn-add">
+                                <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
+                            <p className="btn-details">
+                                <i className="fa fa-list" />
+                                <Link to={`${url}/${tour.id}`} >More</Link></p>
+                        </div>
+                        <div className="clearfix">
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            )
+        })
         return (
            <section id="hot-tours">
                <div className="marginT-50">
@@ -29,187 +89,7 @@ class HotTours extends Component {
                                    <div className="carousel-inner">
                                        <div className="item active">
                                            <div className="row">
-                                               <div className="col-sm-4">
-                                                   <div className="col-item">
-                                                       <div className="photo">
-                                                           <img src={process.env.PUBLIC_URL + 'images/hot1.jpg'} className="img-responsive" alt="a" />
-                                                       </div>
-                                                       <div className="info">
-                                                           <div className="row">
-                                                               <div className="price col-md-6">
-                                                                   <h5>Tour Name</h5>
-                                                                   <h5 className="price-text-color">
-                                                                       $199.99</h5>
-                                                               </div>
-                                                               <div className="rating hidden-sm col-md-6">
-                                                                   <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="fa fa-star" />
-                                                               </div>
-                                                           </div>
-                                                           <div className="separator clear-left">
-                                                               <p className="btn-add">
-                                                                   <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
-                                                               <p className="btn-details">
-                                                                   <i className="fa fa-list" /><Link to="/details">More</Link></p>
-                                                           </div>
-                                                           <div className="clearfix">
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div className="col-sm-4">
-                                                   <div className="col-item">
-                                                       <div className="photo">
-                                                           <img src={process.env.PUBLIC_URL + 'images/hot2.jpg'} className="img-responsive" alt="a" />
-                                                       </div>
-                                                       <div className="info">
-                                                           <div className="row">
-                                                               <div className="price col-md-6">
-                                                                   <h5>Tour Name</h5>
-                                                                   <h5 className="price-text-color">
-                                                                       $199.99</h5>
-                                                               </div>
-                                                               <div className="rating hidden-sm col-md-6">
-                                                                   <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="fa fa-star" />
-                                                               </div>
-                                                           </div>
-                                                           <div className="separator clear-left">
-                                                               <p className="btn-add">
-                                                                    <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
-                                                               <p className="btn-details">
-                                                                    <i className="fa fa-list" /><Link to="/details">More</Link></p>
-                                                           </div>
-                                                           <div className="clearfix">
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div className="col-sm-4">
-                                                   <div className="col-item">
-                                                       <div className="photo">
-                                                           <img src={process.env.PUBLIC_URL + 'images/hot4.jpg'} className="img-responsive" alt="a" />
-                                                       </div>
-                                                       <div className="info">
-                                                           <div className="row">
-                                                               <div className="price col-md-6">
-                                                                   <h5>Tour Name</h5>
-                                                                   <h5 className="price-text-color">
-                                                                       $199.99</h5>
-                                                               </div>
-                                                               <div className="rating hidden-sm col-md-6">
-                                                                   <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="fa fa-star" />
-                                                               </div>
-                                                           </div>
-                                                           <div className="separator clear-left">
-                                                               <p className="btn-add">
-                                                                    <i className="fa fa-shopping-cart" /><a href="" className="hidden-sm">Order Tour</a></p>
-                                                               <p className="btn-details">
-                                                                    <i className="fa fa-list" /><Link to="/details">More</Link></p>
-                                                           </div>
-                                                           <div className="clearfix">
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div className="item">
-                                           <div className="row">
-                                               <div className="col-sm-4">
-                                                   <div className="col-item">
-                                                       <div className="photo">
-                                                           <img src={process.env.PUBLIC_URL + 'images/hot4.jpg'} className="img-responsive" alt="a" />
-                                                       </div>
-                                                       <div className="info">
-                                                           <div className="row">
-                                                               <div className="price col-md-6">
-                                                                   <h5>
-                                                                       Product with Variants</h5>
-                                                                   <h5 className="price-text-color">
-                                                                       $199.99</h5>
-                                                               </div>
-                                                               <div className="rating hidden-sm col-md-6">
-                                                                   <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="fa fa-star" />
-                                                               </div>
-                                                           </div>
-                                                           <div className="separator clear-left">
-                                                               <p className="btn-add">
-                                                                   <i className="fa fa-shopping-cart" /><a href="http://www.jquery2dotnet.com" className="hidden-sm">Add to cart</a></p>
-                                                               <p className="btn-details">
-                                                                   <i className="fa fa-list" /><a href="http://www.jquery2dotnet.com" className="hidden-sm">More details</a></p>
-                                                           </div>
-                                                           <div className="clearfix">
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div className="col-sm-4">
-                                                   <div className="col-item">
-                                                       <div className="photo">
-                                                           <img src={process.env.PUBLIC_URL + 'images/hot4.jpg'} className="img-responsive" alt="a" />
-                                                       </div>
-                                                       <div className="info">
-                                                           <div className="row">
-                                                               <div className="price col-md-6">
-                                                                   <h5>
-                                                                       Product with Variants</h5>
-                                                                   <h5 className="price-text-color">
-                                                                       $199.99</h5>
-                                                               </div>
-                                                               <div className="rating hidden-sm col-md-6">
-                                                                   <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="fa fa-star" />
-                                                               </div>
-                                                           </div>
-                                                           <div className="separator clear-left">
-                                                               <p className="btn-add">
-                                                                   <i className="fa fa-shopping-cart" /><a href="http://www.jquery2dotnet.com" className="hidden-sm">Add to cart</a></p>
-                                                               <p className="btn-details">
-                                                                   <i className="fa fa-list" /><a href="http://www.jquery2dotnet.com" className="hidden-sm">More details</a></p>
-                                                           </div>
-                                                           <div className="clearfix">
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                               <div className="col-sm-4">
-                                                   <div className="col-item">
-                                                       <div className="photo">
-                                                           <img src={process.env.PUBLIC_URL + 'images/hot4.jpg'} className="img-responsive" alt="a" />
-                                                       </div>
-                                                       <div className="info">
-                                                           <div className="row">
-                                                               <div className="price col-md-6">
-                                                                   <h5>
-                                                                       Product with Variants</h5>
-                                                                   <h5 className="price-text-color">
-                                                                       $199.99</h5>
-                                                               </div>
-                                                               <div className="rating hidden-sm col-md-6">
-                                                                   <i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="price-text-color fa fa-star" /><i className="price-text-color fa fa-star">
-                                                               </i><i className="fa fa-star" />
-                                                               </div>
-                                                           </div>
-                                                           <div className="separator clear-left">
-                                                               <p className="btn-add">
-                                                                   <i className="fa fa-shopping-cart" /><a href="http://www.jquery2dotnet.com" className="hidden-sm">Add to cart</a></p>
-                                                               <p className="btn-details">
-                                                                   <i className="fa fa-list" /><a href="http://www.jquery2dotnet.com" className="hidden-sm">More details</a></p>
-                                                           </div>
-                                                           <div className="clearfix">
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
+                                              {result}
                                            </div>
                                        </div>
                                    </div>
