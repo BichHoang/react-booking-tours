@@ -14,8 +14,8 @@ class Content extends Component {
             <div>
                 <Slide/>
                 <Introduce/>
-                <HotTours/>
-                <Ourgallery/>
+                <HotTours match={this.props.match} />
+                <Ourgallery match={this.props.match} />
                 <Feedback/>
                 <Blog/>
                 <Contact/>
