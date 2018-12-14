@@ -55,6 +55,16 @@ class SignUp extends Component {
             this.setState({error: 'This email has already exists', count: 0});
         }      
     }
+
+    componentDidUpdate(){
+        if (this.state.count === 0){
+            Axios.get('http://5c0e9da8e1498a00133648b9.mockapi.io/users')
+            .then(res => {
+            const users = res.data;
+            this.setState({users});
+        })
+        }
+    }
     render() {
         return (
             <div>
