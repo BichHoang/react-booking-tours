@@ -12,6 +12,7 @@
 .carousel-inner{border-radius:0 10px 10px 0;}
 .carousel-caption{text-align:left; left:5%;}
 .login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text1{position:absolute; width:80%; bottom:40px; font-size:13px; text-align:center;}
 .login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
 .login-sec .copy-text i{color:#FEB58A;}
 .login-sec .copy-text a{color:#E36262;}
