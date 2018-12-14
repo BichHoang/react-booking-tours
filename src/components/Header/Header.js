@@ -12,7 +12,7 @@ class Header extends Component {
                         <div className="cube2 t-cube" />
                     </div>
                 </div>
-                <header className="bg-black">
+                <header className="bg-black fixed-top">
                     <div className="container clearfix nopadding">
                         <div id="logo">
                             <a href="/">
