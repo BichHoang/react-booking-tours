@@ -6,7 +6,8 @@ initialState = user ? user : initialState;
 const currentUser = (state = initialState, action) => {
     switch(action.type){
         case Types.LOG_OUT:
-            localStorage.removeItem('current_user');
+            localStorage.setItem('current_user', JSON.stringify({id: -1}));
+            //localStorage.removeItem('current_user');
             return null;
         default :
             return state;

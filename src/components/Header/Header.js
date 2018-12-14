@@ -10,20 +10,20 @@ class Header extends Component {
     }
     render() {
         var {currentUser} = this.props;
+        
         var thisUser = null;
         var login = <li className="last leaf"><NavLink to="/login" className="nav-link active">Log In</NavLink></li>
-        if(currentUser) {
+        if(currentUser.id !== -1) {
             let id = this.props.currentUser.id;
-            let path = "/users/" + id;
+            let path = '/user/' + id + '/edit'
             thisUser= <li className="leaf">
                             <NavLink to={path} className="nav-link active">
-                                {this.props.currentUser.name}
+                            {this.props.currentUser.name}
                             </NavLink>
                             </li>
-            login = <li onClick={this.handleLogout} className="leaf"><a href="#" className="nav-link active">LOGOUT</a></li>
+            login = <li onClick={this.handleLogout} className="leaf"><a href="/" className="nav-link active">LOGOUT</a></li>
         }
-
-        console.log(this.props.currentUser);
+        console.log(currentUser);
         return (
             <div className="bg-black">
                 <div id="loader-wrapper">

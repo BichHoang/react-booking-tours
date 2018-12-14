@@ -6,6 +6,7 @@ import Content from './components/Content/Content';
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
 import Ourgallery from './components/Ourgallery/Ourgallery';
+import Profile from './components/Profile/Profile';
 
 const routes = [
     {
@@ -33,6 +34,11 @@ const routes = [
         path: '/login',
         exact: true,
         main: ({match}) => <Login match={match} />
+    },
+    {
+        path: '/user/:id/edit',
+        exact: false,
+        main: ({match}) => <Profile match={match} />
     },
     {
         path: '',
