@@ -1,82 +1,51 @@
 import * as Types from './../constants/ActionType';
 import callApi from './../utils/apiCaller';
 
-export const actFetchtoursRequest = () => {
+export const getAllTourAPI = () => {
     return (dispatch) => {
         return callApi('/tours', 'GET', null).then(res => {
-            dispatch(actFetchtours(res.data));
+            dispatch(getAllTour(res.data))
         });
     }
 }
 
-export const actFetchtours = (tours) => {
+export const getAllTour = (tours) => {
     return {
-        type: Types.FETCH_TOURS,
+        type: Types.GET_ALL_TOUR,
         tours
     }
 }
 
-export const actAddtourRequest = (tour) => {
+export const getAllCategoryAPI = () => {
     return (dispatch) => {
-        return callApi('/tours', 'POST', tour).then(res => {
-            dispatch(actAddtour(res.data));
+        return callApi('/categories', 'GET', null).then(res => {
+            dispatch(getAllCategory(res.data))
         });
     }
 }
 
-export const actAddtour = (tour) => {
+export const getAllCategory = (categories) => {
     return {
-        type: Types.ADD_TOUR,
-        tour
+        type: Types.GET_ALL_CATEGORY,
+        categories
     }
 }
 
-export const actUpdatetourRequest = (tour) => {
+export const getAllUserAPI = () => {
     return (dispatch) => {
-        return callApi(`/tours/${tour.id}`, 'PUT', tour).then(res => {
-            if (res) {
-                dispatch(actUpdatetour(res.data));
-            }
+        return callApi('/users', 'GET', null).then(res => {
+            dispatch(getAllUser(res.data))
         });
     }
 }
 
-export const actUpdatetour = (tour) => {
+export const getAllUser = (users) => {
     return {
-        type: Types.UPDATE_TOUR,
-        tour
+        type: Types.GET_ALL_USER,
+        users
     }
 }
 
-export const actDeletetourRequest = (id) => {
-    return (dispatch) => {
-        return callApi(`/tours/${id}`, 'DELETE', null).then(res => {
-            dispatch(actDeletetour(id));
-        });
-    }
-}
-
-export const actDeletetour = (id) => {
-    return {
-        type: Types.DELETE_TOUR,
-        id
-    }
-}
-
-export const actGettourRequest = (id) => {
-    return dispatch => {
-        return callApi(`/tours/${id}`, 'GET', null).then(res => {
-            dispatch(actGettour(res.data))
-        });
-    }
-}
-
-export const actGettour = (tour) => {
-    return {
-        type : Types.EDIT_TOUR,
-        tour
-    }
-}
 export const openForm = () => {
     return {
         type : Types.OPEN_BOOKING_FORM

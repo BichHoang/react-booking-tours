@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import './Ourgallery.css';
 import { Link } from 'react-router-dom';
-import callApi from './../../utils/apiCaller';
 import _ from 'lodash';
+import { getAllTourAPI, getAllCategoryAPI } from '../../actions';
+import {connect} from 'react-redux';
 
 class Ourgallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tours: [],
-            category: 'all',
-            categories: []
+            category: 'all'
         }
     }
     componentDidMount() {
-        callApi('tours','GET',null).then(res => {
-            this.setState({tours: res.data})
-        })
-        callApi('categories','GET',null).then(res => {
-            this.setState({categories: res.data})
-        })
-        
+        this.props.getAllTour();
+        this.props.getAllCategory();
     }
     getTours = (tours, url) => {
         let category = this.state.category;
@@ -44,7 +38,6 @@ class Ourgallery extends Component {
     }
     changeCategory = (category_id) => {
         this.setState({category: category_id})
-
     }
     getCategories = (categories) => {
         let result = categories.map((category, index) => {
@@ -60,10 +53,7 @@ class Ourgallery extends Component {
         return result;
     } 
     render() {
-        let {match} = this.props;
-        let {tours, categories} = this.state;
-        console.log(categories);
-        console.log(match);
+        let {tours, match, categories} = this.props;
         let url = match.url;
         if(url === '/') {
             url = '/tours';
@@ -116,4 +106,22 @@ class Ourgallery extends Component {
     }
 }
 
-export default Ourgallery;
+const mapStateToProps = (state) => {
+    return {
+        tours: state.tours,
+        categories: state.categories
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        getAllTour: () => {
+            dispatch(getAllTourAPI());
+        },
+        getAllCategory: () => {
+            dispatch(getAllCategoryAPI());
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Ourgallery);
