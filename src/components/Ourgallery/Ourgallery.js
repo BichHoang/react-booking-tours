@@ -2,26 +2,32 @@ import React, { Component } from 'react';
 import './Ourgallery.css';
 import { Link } from 'react-router-dom';
 import callApi from './../../utils/apiCaller';
+import _ from 'lodash';
 
 class Ourgallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tours: []
+            tours: [],
+            category: 'all',
+            categories: []
         }
     }
     componentDidMount() {
         callApi('tours','GET',null).then(res => {
             this.setState({tours: res.data})
         })
+        callApi('categories','GET',null).then(res => {
+            this.setState({categories: res.data})
+        })
+        
     }
-    render() {
-        let {match} = this.props;
-        let {tours} = this.state;
-        console.log(match);
-        let url = match.url;
-        if(url === '/') {
-            url = '/tours';
+    getTours = (tours, url) => {
+        let category = this.state.category;
+        if(category !== 'all') {
+            tours = _.filter(tours, function(o) { 
+                return o.category_id === category; 
+            })
         }
         let result = tours.map((tour, index) => {
             return ( 
@@ -34,6 +40,34 @@ class Ourgallery extends Component {
                 </Link>      
             )
         })
+        return result;
+    }
+    changeCategory = (category_id) => {
+        this.setState({category: category_id})
+
+    }
+    getCategories = (categories) => {
+        let result = categories.map((category, index) => {
+        let actual = this.state.category === category.id ? "actual" : null;
+        return (
+            <span 
+                onClick={() => this.changeCategory(category.id)} 
+                className={`button ${actual}`} >
+                    {category.name}
+            </span>
+            )
+        })
+        return result;
+    } 
+    render() {
+        let {match} = this.props;
+        let {tours, categories} = this.state;
+        console.log(categories);
+        console.log(match);
+        let url = match.url;
+        if(url === '/') {
+            url = '/tours';
+        }
         return (
             <section id="gallery">
                 <div className="region region-onepage-our-gallery">
@@ -45,108 +79,14 @@ class Ourgallery extends Component {
                                         <img src={process.env.PUBLIC_URL + 'images/outgallary.png'} alt="img" />
                                         <h2 className="block-title t-about-title">our gallery</h2>
                                         <div id="filters" className="cont-filter clearfix">
-                                            <span className="button actual" data-filter="*">all</span>
-                                            <span className="button" data-filter=".11">Africa</span>
-                                            <span className="button" data-filter=".10">Asia</span>
-                                            <span className="button" data-filter=".9">Australia</span>
-                                            <span className="button" data-filter=".8">Europe</span>
-                                            <span className="button" data-filter=".12">North America</span>
-                                            <span className="button" data-filter=".13">South America</span> </div>
+                                          {this.getCategories(categories)}
+                                        </div>
                                     </div>
                                 </div>
                                 <center>
                                     <div id="gallery-popap" className="isotope img-crop ">
                                         <div className="grid" />
-                                       {result}
-                                    </div>
-                                    <div id="gallery-box" className="mfp-with-anim mfp-hide">
-                                        <div className="sw-container">
-                                            <div className="swiper-container" data-mode="horizontal" data-slides-per-view={1} data-loop={1}>
-                                                <div className="swiper-wrapper ">
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot4.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="swiper-slide">
-                                                        <div className="plase-box background-parent">
-                                                            <img className="center-image" src={process.env.PUBLIC_URL + 'images/hot2.jpg'} alt="img" />
-                                                        </div>
-                                                        <div className="place-info">
-                                                            <div className="hot-price">$775.00</div>
-                                                            <h3 className="country-name">Istanbul, Turkey</h3>
-                                                            <p>Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Aenean semper augue at lorem mattis, ac tempor leo mattis. Donec feugiat in sem sed pellentesque.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="pagination pagination-hide pagination-gallery" />
-                                            </div>
-                                        </div>
+                                        {this.getTours(tours, url)}
                                     </div>
                                 </center>
                             </section>
@@ -154,7 +94,6 @@ class Ourgallery extends Component {
                         </div>
                     </div>
                 </div>
-
             </section>
         );
     }
