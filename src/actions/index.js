@@ -1,11 +1,33 @@
 import * as Types from './../constants/ActionType';
 import callApi from './../utils/apiCaller';
 
-export const actFetchtoursRequest = () => {
+export const getAllTourAPI = () => {
     return (dispatch) => {
         return callApi('/tours', 'GET', null).then(res => {
-            dispatch(actFetchtours(res.data));
+            dispatch(getAllTour(res.data))
         });
+    }
+}
+
+export const getAllTour = (tours) => {
+    return {
+        type: Types.GET_ALL_TOUR,
+        tours
+    }
+}
+
+export const getAllCategoryAPI = () => {
+    return (dispatch) => {
+        return callApi('/categories', 'GET', null).then(res => {
+            dispatch(getAllCategory(res.data))
+        });
+    }
+}
+
+export const getAllCategory = (categories) => {
+    return {
+        type: Types.GET_ALL_CATEGORY,
+        categories
     }
 }
 
