@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Ourgallery.css';
 import { Link } from 'react-router-dom';
-import _ from 'lodash';
+import {filter, includes} from 'lodash';
 import { getAllTourAPI, getAllCategoryAPI } from '../../actions';
 import {connect} from 'react-redux';
 
@@ -9,7 +9,11 @@ class Ourgallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            category: 'all'
+            tours: [],
+            category: 'all',
+            search: '',
+            strSearch: '',
+            isSearch: false
         }
     }
     componentDidMount() {
@@ -17,11 +21,18 @@ class Ourgallery extends Component {
         this.props.getAllCategory();
     }
     getTours = (tours, url) => {
-        let category = this.state.category;
+        
+        let {category, search, isSearch, strSearch} = this.state;
         if(category !== 'all') {
-            tours = _.filter(tours, function(o) { 
+            tours = filter(tours, function(o) { 
                 return o.category_id === category; 
             })
+        }
+        console.log(tours);
+        if(isSearch) {
+            tours = filter(tours, (tour) => {
+                return includes(tour.name.toLocaleLowerCase(), strSearch.toLocaleLowerCase());
+            });
         }
         let result = tours.map((tour, index) => {
             return ( 
@@ -37,7 +48,11 @@ class Ourgallery extends Component {
         return result;
     }
     changeCategory = (category_id) => {
-        this.setState({category: category_id})
+        this.setState({
+            category: category_id,
+            search: '',
+            isSearch: false
+        })
     }
     getCategories = (categories) => {
         let result = categories.map((category, index) => {
@@ -52,6 +67,12 @@ class Ourgallery extends Component {
         })
         return result;
     } 
+    handleChange = (event) => {
+        this.setState({ search: event.target.value });   
+    }
+    handleSearch = () => {
+        this.setState({isSearch: true, strSearch: this.state.search})
+    }
     render() {
         let {tours, match, categories} = this.props;
         let url = match.url;
@@ -75,16 +96,12 @@ class Ourgallery extends Component {
                                             <div className="col-sm-12">
                                                 <div className="col-sm-1"></div>
                                                 <div className="col-sm-10">
-                                                    <form className="" role="search">
-                                                        <div className="search-form">
-                                                            <input type="text"  placeholder="Search..." />
-                                                            <button type="submit" className="btn btn-default">
-                                                                <span className="glyphicon glyphicon-search">
-                                                                    <span className="sr-only">Search...</span>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
+                                                <div className="search-form">
+                                                    <input value={this.state.search} type="text" name="search" onChange={this.handleChange}  placeholder="Search" />
+                                                    <button onClick={this.handleSearch} className="btn btn-default">
+                                                        <span className="glyphicon glyphicon-search" />
+                                                    </button>
+                                                </div>
                                                 </div>
                                             </div>
                                         </div>
