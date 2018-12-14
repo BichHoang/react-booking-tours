@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {userLogout} from './../../actions/index';
 
 class Header extends Component {
+    handleLogout = () => {
+        this.props.userLogout();
+    }
     render() {
+        var {currentUser} = this.props;
+        var thisUser = null;
+        var login = <li className="last leaf"><NavLink to="/login" className="nav-link active">Log In</NavLink></li>
+        if(currentUser) {
+            let id = this.props.currentUser.id;
+            let path = "/users/" + id;
+            thisUser= <li className="leaf">
+                            <NavLink to={path} className="nav-link active">
+                                {this.props.currentUser.name}
+                            </NavLink>
+                            </li>
+            login = <li onClick={this.handleLogout} className="leaf"><a href="#" className="nav-link active">LOGOUT</a></li>
+        }
+
+        console.log(this.props.currentUser);
         return (
             <div className="bg-black">
                 <div id="loader-wrapper">
@@ -31,10 +51,10 @@ class Header extends Component {
                                         <li className="first leaf"><NavLink to="/" className="nav-link active">Home</NavLink></li>
                                         <li className="leaf"><a href="/#about" className="nav-link active">About us</a></li>
                                         <li className="leaf"><a href="/#hot-tours" className="nav-link active">Hot tours</a></li>
-                                        <li className="leaf"><a href="/#gallery" className="nav-link active">Gallery</a></li>
+                                        <li className="leaf"><a href="/tours" className="nav-link active">Gallery</a></li>
                                         <li className="leaf"><a href="/#contact" className="nav-link active">Contact</a></li>
-                                        <li className="last"><NavLink to="/login" className="nav-link active">Login</NavLink></li>
-                                        <li className="last leaf"><NavLink to="/signup" className="nav-link active">Sign Up</NavLink></li>
+                                        {thisUser}
+                                        {login}
                                     </ul>
                                 </div>
                             </div>
@@ -46,4 +66,18 @@ class Header extends Component {
         );
     }
 }
-export default Header;
+
+const mapStateToProps = state => {
+    return {
+        currentUser: state.currentUser
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    console.log("LOGOUT");
+    return {
+        userLogout: () => {
+          dispatch(userLogout())
+        }
+      }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

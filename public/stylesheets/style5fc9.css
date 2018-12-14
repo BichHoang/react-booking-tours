@@ -289,7 +289,7 @@ p {
   letter-spacing: 10px;
   line-height: 1.3;
   text-align: center;
-  margin-bottom: 23px;
+  margin-bottom: 15px;
   word-wrap: break-word;
 }
 
@@ -6449,7 +6449,8 @@ body.food .mfp-close:after {
   text-align: center;
 }
 .t-title-block img {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
+  height: 55px;
 }
 
 /*----------HEADER----------------------*/
@@ -7003,7 +7004,7 @@ body.travel .r-nav li.active a {
 
 /*----------TRAVEL GALLERY---------------------*/
 .t-gallery {
-  padding-top: 140px;
+  padding-top: 85px;
 }
 @media screen and (max-width: 992px) {
   .t-gallery {
@@ -7013,7 +7014,7 @@ body.travel .r-nav li.active a {
 
 .cont-filter {
   display: table;
-  margin: 0 auto 100px;
+  margin: 0 auto 25px;
 }
 @media screen and (max-width: 992px) {
   .cont-filter {

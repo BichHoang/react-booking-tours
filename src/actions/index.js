@@ -56,3 +56,8 @@ export const closeForm = () => {
         type : Types.CLOSE_BOOKING_FORM
     }
 }
+export const userLogout = () => {
+    return {
+        type : Types.LOG_OUT
+    }
+}

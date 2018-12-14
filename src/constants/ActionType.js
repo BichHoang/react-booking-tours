@@ -4,3 +4,4 @@ export const CURRENT_CATEGORY = 'CURRENT_CATEGORY';
 export const GET_ALL_USER = 'GET_ALL_USER';
 export const OPEN_BOOKING_FORM = 'OPEN_BOOKING_FORM';
 export const CLOSE_BOOKING_FORM = 'CLOSE_BOOKING_FORM';
+export const LOG_OUT = 'LOG_OUT';

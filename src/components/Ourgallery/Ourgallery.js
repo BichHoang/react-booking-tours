@@ -29,7 +29,7 @@ class Ourgallery extends Component {
                     <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
                     <div className="info-panel">
                         <div className="hot-price">${tour.price}</div>
-                        <h3 className="country-name">{tour.place}</h3>
+                        <h3 className="country-name">{tour.name}</h3>
                     </div>
                 </Link>      
             )
@@ -66,10 +66,27 @@ class Ourgallery extends Component {
                             <section className="t-gallery scroll-to-block">
                                 <div className="container">
                                     <div className="t-title-block">
-                                        <img src={process.env.PUBLIC_URL + 'images/outgallary.png'} alt="img" />
                                         <h2 className="block-title t-about-title">our gallery</h2>
+                                        <img src={process.env.PUBLIC_URL + 'images/outgallary.png'} alt="img" />
                                         <div id="filters" className="cont-filter clearfix">
                                           {this.getCategories(categories)}
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                                <div className="col-sm-1"></div>
+                                                <div className="col-sm-10">
+                                                    <form className="" role="search">
+                                                        <div className="search-form">
+                                                            <input type="text"  placeholder="Search..." />
+                                                            <button type="submit" className="btn btn-default">
+                                                                <span className="glyphicon glyphicon-search">
+                                                                    <span className="sr-only">Search...</span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
