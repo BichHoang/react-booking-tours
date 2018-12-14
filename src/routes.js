@@ -3,9 +3,9 @@ import NotFound from './pages/NotFound/NotFound';
 import TourDetail from "./components/TourDetail/TourDetail";
 import Tours from './components/Tours/Tours';
 import Content from './components/Content/Content';
-
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
+import Ourgallery from './components/Ourgallery/Ourgallery';
 
 const routes = [
     {
@@ -16,7 +16,7 @@ const routes = [
     {
         path: '/tours',
         exact: true,
-        main: ({ match}) => <Tours match={match} />
+        main: ({ match}) => <Ourgallery match={match} />
     },
     {
         path: '/tours/:id',
