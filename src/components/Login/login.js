@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import './Login.css'
+import { connect } from 'react-redux';
+import {getAllUserAPI} from './../../actions/index';
 
 class Login extends Component {
     constructor(props){
@@ -17,15 +19,11 @@ class Login extends Component {
     }
 
     componentDidMount(){
-        Axios.get('http://5c0e9da8e1498a00133648b9.mockapi.io/users')
-        .then(res => {
-            const users = res.data;
-            this.setState({users});
-        })
+        this.props.getAllUser();
     }
 
     checkSignIn = () => {
-        this.state.users.map(user => {
+        this.props.users.map(user => {
             if ((user.email === this.state.email) && (user.password === this.state.password)){
                 this.setState({
                     count: this.state.count + 1,
@@ -139,5 +137,17 @@ class Login extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
 
-export default Login;
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        getAllUser: () => {
+            dispatch(getAllUserAPI());
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
