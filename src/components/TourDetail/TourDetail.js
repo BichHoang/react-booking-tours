@@ -3,18 +3,32 @@ import './TourDetail.css';
 import { connect } from 'react-redux';
 import BookingForm from "../BookingForm/BookingForm";
 import * as actions from './../../actions/index';
+import UserComment from './UserComment';
+import callApi from './../../utils/apiCaller';
 
 class TourDetail extends Component {
     constructor(props){
-        super();
+        super(props);
         this.state = {
+            comments: []
         }
+    }
+    componentDidMount() {
+        callApi('comments','GET',null).then(res => {
+            this.setState({comments: res.data})
+        })
     }
     openForm = () => {
         console.log("OPEN");
         this.props.openForm();
     }
     render() {
+        let {comments} = this.state;
+        let result = comments.map((comment, index) => {
+            return ( 
+                <UserComment key={index} comment={comment} />
+            )
+        })
         var { isDisplayBookingForm } = this.props;
         let booking = null;
         if(isDisplayBookingForm) booking = <BookingForm />
@@ -74,13 +88,8 @@ class TourDetail extends Component {
                                                         </div>
                                                         <div className="content-comment">
                                                             <section id="comments-section" className="comments comment-wrapper comment-wrapper-nid-11">
-                                                                <h3 className="comments-title">Comments (0)</h3>
-                                                                <hr />
-                                                                <div id="comments" className="comment-wrapper comment-wrapper-nid-11 comments-list">
-                                                                    <div className="ajax-comment-wrapper ajax-comment-dummy-comment" style={{display: 'none'}}>
-                                                                        <div className="form-item form-type-item"></div>
-                                                                    </div>
-                                                                </div>
+                                                                <h3 className="comments-title">Comments ({comments.length})</h3>
+                                                                {result}
                                                             </section>
                                                         </div>
                                                     </article>
