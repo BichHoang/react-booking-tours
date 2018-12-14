@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import '../Login/Login.css';
 
 class SignUp extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ class SignUp extends Component {
             password: '',
             users: [],
             count: 0,
+            isSuccess: false,
             error: null,
         }
     };
@@ -49,7 +51,10 @@ class SignUp extends Component {
                 console.log(res);
                 console.log(res.data);
             });
-            this.setState({error: 'Your account has been created'});
+            this.setState({
+                error: 'Your account has been created',
+                isSuccess: true,
+            });
         }
         else{
             this.setState({error: 'This email has already exists', count: 0});
@@ -57,39 +62,39 @@ class SignUp extends Component {
     }
 
     componentDidUpdate(){
-        if (this.state.count === 0){
+        if (this.state.isSuccess){
             Axios.get('http://5c0e9da8e1498a00133648b9.mockapi.io/users')
             .then(res => {
             const users = res.data;
             this.setState({users});
+            this.setState({isSuccess: false});
         })
         }
     }
     render() {
         return (
             <div>
-                {this.state.error}
                 <section className="login-block">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-4 login-sec">
+                                {this.state.error}
                                 <h2 className="text-center">Sign Up Now</h2>
                                 <form className="login-form"  onSubmit={this.handleSubmit}>
                                     <div className="form-group">
-                                        <label  onChange={this.handleChange} className="text-uppercase">Full name</label>
-                                        <input type="text" className="form-control" placeholder="Full name" />
+                                        <label className="text-uppercase">Full name</label>
+                                        <input type="text" className="form-control" name="name" placeholder="Full name" onChange={this.handleChange} />
                                     </div>
                                     <div className="form-group">
-                                        <label  onChange={this.handleChange} className="text-uppercase">Email</label>
-                                        <input type="text" className="form-control" placeholder="Email" />
+                                        <label className="text-uppercase">Email</label>
+                                        <input type="email" className="form-control" name="email" placeholder="Email" style={{width: '-webkit-fill-available'}} onChange={this.handleChange} />
                                     </div>
                                     <div className="form-group">
-                                        <label  onChange={this.handleChange} className="text-uppercase">Password</label>
-                                        <input type="password" className="form-control" placeholder="Password" />
+                                        <label className="text-uppercase">Password</label>
+                                        <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
                                     </div>
-                                    <div className="form-group form-check">
-                                        <button type="submit" className="btn btn-login" style={{width: '-webkit-fill-available'}}>Sign Up</button>
-
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-login" style={{width: '-webkit-fill-available'}} onClick={this.checkSignUp}>Sign Up</button>
                                     </div>
                                 </form>
                                 <div className="copy-text1">Back to Home <a href="/">DNT.com</a></div>
