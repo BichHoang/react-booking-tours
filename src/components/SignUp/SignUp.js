@@ -9,6 +9,7 @@ class SignUp extends Component {
             name: '',
             email: '',
             password: '',
+            confirmation: '',
             users: [],
             count: 0,
             isSuccess: false,
@@ -44,6 +45,7 @@ class SignUp extends Component {
                 name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
+                confirmation: this.confirmation,
             }
 
             Axios.post('http://5c0e9da8e1498a00133648b9.mockapi.io/users', user)
@@ -68,6 +70,7 @@ class SignUp extends Component {
             const users = res.data;
             this.setState({users});
             this.setState({isSuccess: false});
+            window.location.replace("/login");
         })
         }
     }
@@ -92,6 +95,10 @@ class SignUp extends Component {
                                     <div className="form-group">
                                         <label className="text-uppercase">Password</label>
                                         <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
+                                    </div>
+                                    <div className="form-group">
+                                        <label className="text-uppercase">Confirmation</label>
+                                        <input type="password" className="form-control" name="confirmation" placeholder="Password" onChange={this.handleChange} />
                                     </div>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-login" style={{width: '-webkit-fill-available'}} onClick={this.checkSignUp}>Sign Up</button>

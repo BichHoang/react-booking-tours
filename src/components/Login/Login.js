@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import './Login.css'
+import {connect} from 'react-redux';
 
 class Login extends Component {
     constructor(props){
         super(props);
         this.state = {
+            id: '',
             name: '',
             email: '',
             password: '',
@@ -29,7 +31,9 @@ class Login extends Component {
             if ((user.email === this.state.email) && (user.password === this.state.password)){
                 this.setState({
                     count: this.state.count + 1,
-                    name: user.name
+                    name: user.name,
+                    email: user.email,
+                    id: user.id,
                 })
             }
             return this.state.count;
@@ -37,25 +41,28 @@ class Login extends Component {
     }
 
     handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value});
+        this.setState({ [event.target.name]: event.target.value});   
     }
 
     handleSubmit = event => {
         event.preventDefault();
         if (this.state.count !== 0){
-            const currentuser = {
+            
+            let user = {
+                id: this.state.id,
                 name: this.state.name,
-                email: this.state.email,
-                password: this.state.password
+                email: this.state.email
             }
+            localStorage.setItem('current_user', JSON.stringify(user))
+            
             this.setState({
-                error: 'Welcome ' + currentuser.name,
                 count: 0,
                 
             })
             this.setState(prevState => ({
                 isLoggedIn: !prevState.isLoggedIn
             }))
+            window.location.replace("/");
         }
         else
         {
@@ -69,8 +76,8 @@ class Login extends Component {
                 <section className="login-block">
                     <div className="container">
                         <div className="row">
-                            {this.state.error}
                             <div className="col-md-4 login-sec">
+                                {this.state.error}
                                 <h2 className="text-center">Login Now</h2>
                                 <form className="login-form"  onSubmit={this.handleSubmit}>
                                     <div className="form-group">
@@ -132,4 +139,10 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        currentUser: state.currentUser
+    }
+}
+  
+export default connect(mapStateToProps,null)(Login);
