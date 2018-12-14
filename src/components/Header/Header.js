@@ -33,8 +33,7 @@ class Header extends Component {
                                         <li className="leaf"><a href="/#hot-tours" className="nav-link active">Hot tours</a></li>
                                         <li className="leaf"><a href="/#gallery" className="nav-link active">Gallery</a></li>
                                         <li className="leaf"><a href="/#contact" className="nav-link active">Contact</a></li>
-                                        <li className="last"><NavLink to="/login" className="nav-link active">Login</NavLink></li>
-                                        <li className="last leaf"><NavLink to="/signup" className="nav-link active">Sign Up</NavLink></li>
+                                        <li className="last leaf"><NavLink to="/login" className="nav-link active">Login</NavLink></li>
                                     </ul>
                                 </div>
                             </div>
