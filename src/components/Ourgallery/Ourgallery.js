@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Ourgallery.css';
 import { Link } from 'react-router-dom';
-import callApi from './../../utils/apiCaller';
-import _ from 'lodash';
+import {filter, includes} from 'lodash';
+import { getAllTourAPI, getAllCategoryAPI } from '../../actions';
+import {connect} from 'react-redux';
 
 class Ourgallery extends Component {
     constructor(props) {
@@ -13,7 +14,9 @@ class Ourgallery extends Component {
             categories: [],
             currentPage: 1,
             todosPerPage: 8,
-            active: ""
+            search: '',
+            strSearch: '',
+            isSearch: false
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -24,20 +27,22 @@ class Ourgallery extends Component {
         });
     }
     componentDidMount() {
-        callApi('tours','GET',null).then(res => {
-            this.setState({tours: res.data})
-        })
-        callApi('categories','GET',null).then(res => {
-            this.setState({categories: res.data})
-        })
-        
+        this.props.getAllTour();
+        this.props.getAllCategory();
     }
     getTours = (tours, url) => {
-        let category = this.state.category;
+        
+        let {category, search, isSearch, strSearch} = this.state;
         if(category !== 'all') {
-            tours = _.filter(tours, function(o) { 
+            tours = filter(tours, function(o) { 
                 return o.category_id === category; 
             })
+        }
+        console.log(tours);
+        if(isSearch) {
+            tours = filter(tours, (tour) => {
+                return includes(tour.name.toLocaleLowerCase(), strSearch.toLocaleLowerCase());
+            });
         }
         let result = tours.map((tour, index) => {
             return ( 
@@ -53,8 +58,11 @@ class Ourgallery extends Component {
         return result;
     }
     changeCategory = (category_id) => {
-        this.setState({category: category_id})
-
+        this.setState({
+            category: category_id,
+            search: '',
+            isSearch: false
+        })
     }
     getCategories = (categories) => {
         let result = categories.map((category, index) => {
@@ -69,11 +77,14 @@ class Ourgallery extends Component {
         })
         return result;
     } 
+    handleChange = (event) => {
+        this.setState({ search: event.target.value });   
+    }
+    handleSearch = () => {
+        this.setState({isSearch: true, strSearch: this.state.search})
+    }
     render() {
-        let {match} = this.props;
-        let {tours, categories} = this.state;
-        console.log(categories);
-        console.log(match);
+        let {tours, match, categories} = this.props;
         let url = match.url;
         if(url === '/') {
             url = '/tours';
@@ -125,16 +136,12 @@ class Ourgallery extends Component {
                                             <div className="col-sm-12">
                                                 <div className="col-sm-1"></div>
                                                 <div className="col-sm-10">
-                                                    <form className="" role="search">
-                                                        <div className="search-form">
-                                                            <input type="text"  placeholder="Search..." />
-                                                            <button type="submit" className="btn btn-default">
-                                                                <span className="glyphicon glyphicon-search">
-                                                                    <span className="sr-only">Search...</span>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
+                                                <div className="search-form">
+                                                    <input value={this.state.search} type="text" name="search" onChange={this.handleChange}  placeholder="Search" />
+                                                    <button onClick={this.handleSearch} className="btn btn-default">
+                                                        <span className="glyphicon glyphicon-search" />
+                                                    </button>
+                                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,4 +169,22 @@ class Ourgallery extends Component {
     }
 }
 
-export default Ourgallery;
+const mapStateToProps = (state) => {
+    return {
+        tours: state.tours,
+        categories: state.categories
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        getAllTour: () => {
+            dispatch(getAllTourAPI());
+        },
+        getAllCategory: () => {
+            dispatch(getAllCategoryAPI());
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Ourgallery);
