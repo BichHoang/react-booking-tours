@@ -25,14 +25,15 @@ class HotTours extends Component {
         }
         let result = tours.map((tour, index) => {
             console.log(index);
-            let active = index < 3 ? "active" : null;
+            let active = index < 3 ? " active" : '';
+            console.log(active);
                 return (
-                <div key={index} className={`item ${active}`} >
-                    <div className="row">
+                <div key={index} className={`item${active}`} >
+                    <div className="">
                             <div className="col-sm-4">
                                 <div className="col-item">
                                     <div className="photo">
-                                        <img src={process.env.PUBLIC_URL + 'images/hot1.jpg'} className="img-responsive" alt="a" />
+                                        <img src="https://blog.traveloka.com/vn/wp-content/uploads/sites/9/2016/10/cam-nang-du-lich-da-nang-ba-na-hills-tu-a-toi-z-moi-nhat-1.jpg" className="img-responsive" alt="a" />
                                     </div>
                                     <div className="info">
                                         <div className="row">
@@ -86,11 +87,7 @@ class HotTours extends Component {
                             <div className="col-lg-12">
                                 <div id="carousel-example-generic" className="carousel slide hidden-xs" data-ride="carousel">
                                     <div className="carousel-inner">
-                                        <div className="item active">
-                                            <div className="row">
-                                                {result}
-                                            </div>
-                                        </div>
+                                        {result}
                                     </div>
                                 </div>
                             </div>

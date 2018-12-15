@@ -11,10 +11,20 @@ class Ourgallery extends Component {
         this.state = {
             tours: [],
             category: 'all',
+            categories: [],
+            currentPage: 1,
+            todosPerPage: 8,
             search: '',
             strSearch: '',
             isSearch: false
         }
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick(event) {
+        this.setState({
+            currentPage: Number(event.target.id),
+            active: "active111"
+        });
     }
     componentDidMount() {
         this.props.getAllTour();
@@ -37,7 +47,7 @@ class Ourgallery extends Component {
         let result = tours.map((tour, index) => {
             return ( 
                 <Link key={index} to={`${url}/${tour.id}`} className="country-link 8 work-img" >
-                    <img typeof="foaf:Image" src={process.env.PUBLIC_URL + 'images/hot1.jpg'} alt="img" />
+                    <img typeof="foaf:Image" src="https://www.autoeurope.com/default/assets/image/2014/06/amsterdam1.jpg" alt="img" />
                     <div className="info-panel">
                         <div className="hot-price">${tour.price}</div>
                         <h3 className="country-name">{tour.name}</h3>
@@ -79,6 +89,36 @@ class Ourgallery extends Component {
         if(url === '/') {
             url = '/tours';
         }
+
+        const {  currentPage, todosPerPage } = this.state;
+        const todos = [...this.getTours(tours, url)];
+        // Logic for displaying current todos
+        const indexOfLastTodo = currentPage * todosPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+        const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+        const renderTodos = currentTodos.map((todo, index) => {
+            return todo;
+        });
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
+            pageNumbers.push(i);
+        }
+
+        const renderPageNumbers = pageNumbers.map(number => {
+
+            return (
+                <li className={`${this.state.active}`}
+                    key={number}
+                    id={number}
+                    onClick={this.handleClick}
+                >
+                    {number}
+                </li>
+            );
+        });
         return (
             <section id="gallery">
                 <div className="region region-onepage-our-gallery">
@@ -110,7 +150,13 @@ class Ourgallery extends Component {
                                 <center>
                                     <div id="gallery-popap" className="isotope img-crop ">
                                         <div className="grid" />
-                                        {this.getTours(tours, url)}
+                                            {renderTodos}
+                                        <div className="content clearfix"></div>
+                                        <div className="pagination">
+                                            <ul id="page-numbers">
+                                                {renderPageNumbers}
+                                            </ul>
+                                        </div>
                                     </div>
                                 </center>
                             </section>

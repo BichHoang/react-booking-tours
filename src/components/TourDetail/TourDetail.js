@@ -61,7 +61,7 @@ class TourDetail extends Component {
                                                                 <div className="field-items">
                                                                     <div className="field-item even" rel="og:image rdfs:seeAlso" resource="http://demo.createdbycocoon.com/drupal/nine/nrgtravel/1/sites/default/files/styles/large_blog__900x400_/public/popup5.jpg?itok=xzrh_4Wq">
                                                                         <a href="" className="active">
-                                                                            <img src="images/tour1.jpg" alt="img" style={{width: '-webkit-fill-available', height: '450px'}} />
+                                                                            <img src="http://banahills.sunworld.vn/wp-content/uploads/2018/08/muon-co-nhung-trai-nghiem-doc-la-san-ngay-combo-dem-ba-na-1240-1.jpg" alt="img" style={{width: '-webkit-fill-available', height: '450px'}} />
                                                                         </a>
                                                                     </div>
                                                                 </div>

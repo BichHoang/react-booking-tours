@@ -26,3 +26,18 @@
     position: absolute;
     right: 70px;
 }
+#page-numbers {
+    list-style: none;
+    display: flex;
+}
+
+#page-numbers > li {
+    margin-right: 0.3em;
+    user-select: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: gainsboro;
+}
+#page-numbers #page3 {
+    background-color: blueviolet !important;
+}
