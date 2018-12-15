@@ -22,8 +22,7 @@ class Ourgallery extends Component {
     }
     handleClick(event) {
         this.setState({
-            currentPage: Number(event.target.id),
-            active: "active111"
+            currentPage: Number(event.target.id)
         });
     }
     componentDidMount() {
@@ -35,7 +34,7 @@ class Ourgallery extends Component {
         let {category, search, isSearch, strSearch} = this.state;
         if(category !== 'all') {
             tours = filter(tours, function(o) { 
-                return o.category_id === category; 
+                return o.category_id === category;
             })
         }
         console.log(tours);
@@ -47,7 +46,7 @@ class Ourgallery extends Component {
         let result = tours.map((tour, index) => {
             return ( 
                 <Link key={index} to={`${url}/${tour.id}`} className="country-link 8 work-img" >
-                    <img typeof="foaf:Image" src="https://www.autoeurope.com/default/assets/image/2014/06/amsterdam1.jpg" alt="img" />
+                    <img typeof="foaf:Image" src={tour.img} alt="img" />
                     <div className="info-panel">
                         <div className="hot-price">${tour.price}</div>
                         <h3 className="country-name">{tour.name}</h3>

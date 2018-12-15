@@ -86,6 +86,9 @@ class TourDetail extends Component {
                                                         <div>
                                                             {booking}
                                                         </div>
+                                                        <div className="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/"
+                                                             data-numposts={5} data-colorscheme="dark" data-width="100%">
+                                                        </div>
                                                         <div className="content-comment">
                                                             <section id="comments-section" className="comments comment-wrapper comment-wrapper-nid-11">
                                                                 <h3 className="comments-title">Comments ({comments.length})</h3>
