@@ -23,6 +23,9 @@ class Login extends Component {
         .then(res => {
             const users = res.data;
             this.setState({users});
+            users.map(user => {
+                localStorage.setItem(user.email,user.id);
+            })
         })
     }
 
@@ -46,13 +49,14 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        if (this.state.count !== 0){
-            
+        if (this.state.count !== 0){            
             let user = {
-                id: this.state.id,
+                id: localStorage.getItem(this.state.email),
                 name: this.state.name,
-                email: this.state.email
+                email: this.state.email,
+                password: this.state.password,
             }
+            console.log(user);
             localStorage.setItem('current_user', JSON.stringify(user))
             
             this.setState({
